@@ -1,0 +1,87 @@
+.header p {
+    display: none;
+}
+
+.iconMenuLink {
+    display: none;
+}
+
+.header {
+    background-color: #0F084B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px 20px 30px;
+    position: sticky;
+    top: 0;
+    height: 80px;
+}
+
+.header img {
+    width: 200px
+}
+
+.header nav ul {
+    display: flex;
+}
+
+.header nav ul li{
+    list-style: none;
+    padding: 0px 20px;
+    text-decoration: none;
+}
+
+.header nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+@media (max-width: 950px)  {
+    .iconMenuLink {
+        display: inline-block;
+    }
+    .header p {
+        display: block;
+        color: #fff;
+        font-size: 2em;
+    }
+
+    .header p:hover {
+        cursor: pointer;
+    }
+
+    .header nav ul {
+        position: absolute;
+        width: 100%;
+        top: 80px;
+        right: 0;
+        background-color: #0e0849fa;
+        flex-direction: column;
+        overflow: hidden;
+        height: 0;
+        transition: .5s;
+        visibility: hidden;
+        align-items: center;
+    }
+    
+    .header nav ul li {
+       margin-top: 25px;
+    }
+
+    .header nav.active ul {
+        visibility: visible;
+        height: 250px;
+    }
+    
+    .iconMenuLink {
+        margin: 0 10px 1px 0;
+    }
+}
+
+@media (min-width: 1200px)  {
+
+    .header nav ul li a{
+        font-size: 1.1em;
+    }
+}

@@ -1,0 +1,75 @@
+.about-me {
+    background-color: #0F084B;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 10%;
+}
+
+.about-me h1 {
+    font-size: 3em;
+    margin-bottom: 40px;
+}
+
+.about-me .photoPresentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-me img {
+    width: 70%;
+    border-radius: 200px;
+    margin-bottom: 40px;
+}
+
+.about-me .presentation h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.about-me .presentation p {
+    text-align: justify;
+    line-height: 27px;
+    font-weight: 500;
+}
+
+@media (min-width: 500px) {
+    .about-me img {
+        width: 300px;
+    }
+}
+
+@media (min-width: 720px) {
+    .about-me {
+        padding: 60px 10% 70px 10%;
+    }
+    .about-me h1 {
+        font-size: 3.5em;
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 1000px) {
+
+    .about-me img {
+        margin-bottom: 0;
+        margin-right: 40px;
+    }
+
+    .about-me .presentation {
+        margin-left: 40px;
+    }
+    
+    .about-me .photoPresentation {
+        flex-direction: row;
+    }
+
+    .about-me .presentation h2 {
+        font-size: 2.2em;
+        
+    }
+    
+}

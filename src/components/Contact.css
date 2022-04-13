@@ -1,0 +1,96 @@
+.contact {
+    background-color: #00042B;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.contact h1 {
+    font-size: 3em;
+    margin-bottom: 60px;
+}
+
+.contact .imgSocial {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contact .imgSocial img {
+    width: 70%;
+    align-self: center;
+    margin-bottom: 60px;
+}
+
+.contact .imgSocial .social {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.contact .imgSocial .social .socialIcons {
+    font-size: 2.5em;
+    margin-right: 10px;
+}
+
+.contact .imgSocial .social a:nth-child(3) .socialIcons {
+    margin-left: -3px;
+}
+
+.contact .imgSocial .social a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact .imgSocial .social p {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+
+.contact .arrow {
+    background-color: #fff;
+    color: #00042B;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    align-self: flex-end;
+    margin-right: 40px;
+}
+
+.contact .arrow:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 500px) {
+    .contact .imgSocial img {
+        width: 350px;
+    }
+}
+
+@media (min-width: 720px) {
+    .contact {
+        padding: 60px 0 40px 0;
+    }
+    .contact h1 {
+        font-size: 3.5em;
+    }
+}
+
+@media (min-width: 800px) {
+    .contact .imgSocial {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .contact .imgSocial img {
+        margin-top: 40px;
+    }
+}

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,12 +23,13 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>Portfólio - Matheus Vasconcelos</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -39,5 +39,125 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+<script>
+  window.onload = function () {
+
+    /* Função para efeito de máquina de escrever */
+
+    let title = document.getElementById('typeWriter');
+    let texts = ["Matheus Vasconcelos", "a Front End Developer."];
+
+    function typeWriter(str, done) {
+      let char = str.split('').reverse();
+      let typer = setInterval(function () {
+        if (!char.length) {
+          clearInterval(typer);
+          return setTimeout(done, 1000);
+        }
+        let next = char.pop();
+        title.innerHTML += next;
+      }, 100);
+    }
+
+    function clean(done) {
+      let char = title.innerHTML;
+      let nr = char.length;
+      let typer = setInterval(function () {
+        if (nr-- == 4) {
+          clearInterval(typer);
+          return done();
+        }
+        title.innerHTML = char.slice(0, nr);
+      }, 100);
+    }
+
+    function content(contents, el) {
+      let current = -1;
+      function prox(cb) {
+        if (current < contents.length - 1) current++;
+        else current = 0;
+        let str = contents[current];
+        typeWriter(str, function () {
+          clean(prox);
+        });
+      }
+      prox(prox);
+    }
+    content(texts);
+
+    /* Menu DropDown */
+
+    const menuIcon = document.querySelector('.header p')
+    const linkMenu = document.querySelectorAll('.header a')
+
+    function toggleMenu() {
+      const nav = document.querySelector('.header nav')
+      nav.classList.toggle('active')
+    }
+
+    menuIcon.addEventListener('click', toggleMenu)
+    for (let i = 0; i < linkMenu.length; i++) {
+      linkMenu[i].addEventListener("click", toggleMenu)
+    }
+
+    /* Scroll Suave*/
+
+    const menuItems = document.querySelectorAll(".header nav a")
+
+    menuItems.forEach(item => {
+      item.addEventListener("click", scrollToIdOnClick)
+    })
+
+    function getScrollTopByHref(element) {
+      const id = element.getAttribute("href")
+      return document.querySelector(id).offsetTop
+    }
+
+    function scrollToIdOnClick(event) {
+      event.preventDefault()
+      const to = getScrollTopByHref(event.target) - 80
+      scrollToPositon(to)
+    }
+
+    function scrollToPositon(to) {
+      smoothScrollTo(100, to)
+    }
+
+    /**
+     * Smooth scroll animation
+     * @param {int} endX: destination x coordinate
+     * @param {int} endY: destination y coordinate
+     * @param {int} duration: animation duration in ms
+     */
+    function smoothScrollTo(endX, endY, duration) {
+      const startX = window.scrollX || window.pageXOffset;
+      const startY = window.scrollY || window.pageYOffset;
+      const distanceX = endX - startX;
+      const distanceY = endY - startY;
+      const startTime = new Date().getTime();
+
+      duration = typeof duration !== 'undefined' ? duration : 400;
+
+      // Easing function
+      const easeInOutQuart = (time, from, distance, duration) => {
+        if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
+        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+      };
+
+      const timer = setInterval(() => {
+        const time = new Date().getTime() - startTime;
+        const newX = easeInOutQuart(time, startX, distanceX, duration);
+        const newY = easeInOutQuart(time, startY, distanceY, duration);
+        if (time >= duration) {
+          clearInterval(timer);
+        }
+        window.scroll(newX, newY);
+      }, 1000 / 60); // 60 fps
+    };
+  }
+
+
+</script>
+
 </html>

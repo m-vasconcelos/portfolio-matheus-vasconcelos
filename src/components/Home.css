@@ -1,0 +1,78 @@
+.home {
+    background-color: #00042B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:  50px 20px 20px 20px;
+    text-align: center;
+    height: 350px;
+}
+
+.home div h1 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.home div h1:nth-child(2)::after {
+    content: "|";
+    margin-left: 2px;
+    opacity: 1;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.home div h1:nth-child(1) {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.home div h1:nth-child(2) {
+    font-size: 2em;  
+}
+
+.home button {
+    background: none;
+    border: #fff solid 3px;
+    border-radius: 30px;
+    padding: 15px 40px;
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 50px 0 50px 0;
+    transition: .5s;
+}
+
+.home button:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #00042B;
+}
+
+@media (min-width: 1200px) {
+    .home div h1:nth-child(1) {
+        font-size: 2em;
+    }
+    
+    .home div h1:nth-child(2) {
+        font-size: 2.5em;  
+    }
+
+    .home button {
+        
+        border-radius: 50px;
+        padding: 20px 50px;
+        color: #fff;
+        font-size: 1.4em;
+        font-weight: 600;
+        margin: 50px 0 50px 0;
+        transition: .5s;
+    }
+}
