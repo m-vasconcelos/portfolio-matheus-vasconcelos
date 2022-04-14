@@ -18,5 +18,5 @@ export default () =>
                 <a href="https://github.com/m-vasconcelos" target="_blank"><FontAwesomeIcon className="socialIcons" icon={faGithub}/><p>GitHub</p></a>
             </div>
         </div>
-        <a href="#home" className="arrow"><FontAwesomeIcon icon={faArrowUp}/></a>
+        <a href="#header" className="arrow"><FontAwesomeIcon icon={faArrowUp}/></a>
     </section>

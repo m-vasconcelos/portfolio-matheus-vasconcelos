@@ -45,7 +45,7 @@
 
     /* Menu DropDown */
 
-    const menuIcon = document.querySelector('.header p')
+    /* const menuIcon = document.querySelector('.header p')
     const linkMenu = document.querySelectorAll('.header a')
 
     function toggleMenu() {
@@ -56,7 +56,7 @@
     menuIcon.addEventListener('click', toggleMenu)
     for (let i = 0; i < linkMenu.length; i++) {
       linkMenu[i].addEventListener("click", toggleMenu)
-    }
+    } */
 
     /* Scroll Suave*/
 
@@ -73,7 +73,7 @@
 
     function scrollToIdOnClick(event) {
       event.preventDefault()
-      const to = getScrollTopByHref(event.target) - 80
+      const to = getScrollTopByHref(event.target)
       scrollToPositon(to)
     }
 

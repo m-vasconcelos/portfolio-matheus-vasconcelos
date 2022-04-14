@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faHouse, faStar, faFolder, faUser, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 export default () => 
-    <header className="header">
+    <header id="header" className="header">
         <img src={Logo} alt="Logo"/>
         <nav>
             <ul>
